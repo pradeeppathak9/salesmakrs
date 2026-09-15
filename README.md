@@ -2,6 +2,8 @@
 
 Distribution-management app — React + Vite frontend, FastAPI backend, Postgres database. Three portals share one backend: **Distributor**, **Salesperson**, and **Retailer**.
 
+Picking this project up fresh (including as an AI agent)? Read [HANDOVER.md](HANDOVER.md) first — it covers current status, architecture, and gotchas. [PLAN.md](PLAN.md) has the fuller roadmap and reasoning behind the design decisions.
+
 ## Quickstart (dev)
 
 ```bash
