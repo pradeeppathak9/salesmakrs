@@ -7,7 +7,7 @@ from app.routers import auth, orders, products, retailers, salespersons
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Salesmakrs API")
+app = FastAPI(title="SalesMakrs API")
 
 app.add_middleware(
     CORSMiddleware,

@@ -32,7 +32,7 @@ export default function Signup() {
       <div className="auth-card">
         <span className="brand">
           <span className="brand-mark">S</span>
-          Salesmakrs
+          SalesMakrs
         </span>
         <h1>Create your distributor account</h1>
         <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-# Salesmakrs — Product Roadmap
+# SalesMakrs — Product Roadmap
 
 > This is the working plan used to build the app so far (phases 1–4). Kept in
 > the repo so the reasoning behind the architecture — not just the resulting
@@ -7,7 +7,7 @@
 
 ## Context
 
-Salesmakrs is a B2B distribution-management app: a **Distributor** sells products through a network of **Retailers**, worked by their own **Salespersons** (field reps). A first pass at the Distributor portal was already built (FastAPI + SQLAlchemy backend, React + Vite frontend) with signup/login and CRUD for Products, Retailers, and Salespersons — but it was scaffolded ad hoc, without planning for the rest of the app. Salespersons and Retailers were just *records* the distributor kept, not people who could log in themselves.
+SalesMakrs is a B2B distribution-management app: a **Distributor** sells products through a network of **Retailers**, worked by their own **Salespersons** (field reps). A first pass at the Distributor portal was already built (FastAPI + SQLAlchemy backend, React + Vite frontend) with signup/login and CRUD for Products, Retailers, and Salespersons — but it was scaffolded ad hoc, without planning for the rest of the app. Salespersons and Retailers were just *records* the distributor kept, not people who could log in themselves.
 
 That first pass was **discarded**. This plan replaced it with a proper foundation designed up front for where the app is going: three portals (Distributor, Salesperson, Retailer) sharing one backend, built around **orders** as the core workflow — since taking and tracking orders is the actual point of a distribution business, and it's what makes the Salesperson and Retailer portals meaningful rather than read-only directories.
 

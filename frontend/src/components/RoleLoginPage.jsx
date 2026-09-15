@@ -28,7 +28,7 @@ export default function RoleLoginPage({ title, onLogin, homePath, footer }) {
       <div className="auth-card">
         <span className="brand">
           <span className="brand-mark">S</span>
-          Salesmakrs
+          SalesMakrs
         </span>
         <h1>{title}</h1>
         <form onSubmit={handleSubmit}>

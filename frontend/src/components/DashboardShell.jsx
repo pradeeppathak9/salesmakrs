@@ -29,7 +29,7 @@ export default function DashboardShell({ navItems, primaryField, secondaryField 
       <aside className="sidebar">
         <div className="brand">
           <span className="brand-mark">S</span>
-          Salesmakrs
+          SalesMakrs
         </div>
 
         <nav className="sidebar-nav">

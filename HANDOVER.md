@@ -4,7 +4,7 @@ For a Claude agent (or anyone) picking this project up fresh. Read this before [
 
 ## What this is
 
-Salesmakrs: a B2B distribution-management app. A **Distributor** sells products through **Retailers**, worked by the distributor's own **Salespersons**. Three portals, one backend, one frontend. Orders are the core workflow — salespersons and retailers place orders, the distributor approves/rejects/fulfills them.
+SalesMakrs: a B2B distribution-management app. A **Distributor** sells products through **Retailers**, worked by the distributor's own **Salespersons**. Three portals, one backend, one frontend. Orders are the core workflow — salespersons and retailers place orders, the distributor approves/rejects/fulfills them.
 
 Repo: `git@github.com:pradeeppathak9/salesmakrs.git`, branch `main`.
 

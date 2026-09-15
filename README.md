@@ -1,4 +1,4 @@
-# Salesmakrs
+# SalesMakrs
 
 Distribution-management app — React + Vite frontend, FastAPI backend, Postgres database. Three portals share one backend: **Distributor**, **Salesperson**, and **Retailer**.
 
