@@ -1,9 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import { HOME_PATH } from "./constants/roles";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
 import SalespersonLayout from "./components/SalespersonLayout";
 import RetailerLayout from "./components/RetailerLayout";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Products from "./pages/Products";
@@ -17,10 +19,22 @@ import RetailerLogin from "./pages/retailer/Login";
 import RetailerPlaceOrder from "./pages/retailer/PlaceOrder";
 import RetailerMyOrders from "./pages/retailer/MyOrders";
 
+function Home() {
+  const { role } = useAuth();
+  if (role) return <Navigate to={HOME_PATH[role]} replace />;
+  return <Landing />;
+}
+
+function Fallback() {
+  const { role } = useAuth();
+  return <Navigate to={role ? HOME_PATH[role] : "/"} replace />;
+}
+
 export default function App() {
   return (
     <AuthProvider>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route
@@ -60,8 +74,7 @@ export default function App() {
           <Route path="/retailer/orders" element={<RetailerMyOrders />} />
         </Route>
 
-        <Route path="/" element={<Navigate to="/products" replace />} />
-        <Route path="*" element={<Navigate to="/products" replace />} />
+        <Route path="*" element={<Fallback />} />
       </Routes>
     </AuthProvider>
   );

@@ -31,13 +31,22 @@ client.interceptors.response.use(
       error.config?.url?.endsWith(path)
     );
     if (error.response?.status === 401 && !isPublicAuthRequest) {
-      const stored = localStorage.getItem("salesmakrs_session");
-      const role = stored ? JSON.parse(stored).role : "distributor";
-      localStorage.removeItem("salesmakrs_token");
-      localStorage.removeItem("salesmakrs_session");
-      const loginPath = LOGIN_PATH[role] || "/login";
-      if (window.location.pathname !== loginPath) {
-        window.location.href = loginPath;
+      // A page can fire several requests at once (e.g. Orders.jsx loads
+      // orders/products/retailers in parallel). If the token is expired,
+      // all of them 401. Only the first should clear storage and redirect
+      // — otherwise a later handler reads the already-cleared session,
+      // falls back to the "distributor" default, and overwrites the
+      // correct destination with the wrong login page.
+      const token = localStorage.getItem("salesmakrs_token");
+      if (token) {
+        const stored = localStorage.getItem("salesmakrs_session");
+        const role = stored ? JSON.parse(stored).role : "distributor";
+        localStorage.removeItem("salesmakrs_token");
+        localStorage.removeItem("salesmakrs_session");
+        const loginPath = LOGIN_PATH[role] || "/login";
+        if (window.location.pathname !== loginPath) {
+          window.location.href = loginPath;
+        }
       }
     }
     return Promise.reject(error);

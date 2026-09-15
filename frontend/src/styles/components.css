@@ -15,6 +15,7 @@
   font-weight: var(--weight-display);
   font-size: var(--font-size-base);
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease;
   white-space: nowrap;
 }
@@ -80,6 +81,7 @@
 }
 
 .link-btn {
+  display: inline-block;
   background: none;
   border: none;
   padding: var(--space-1) var(--space-2);
@@ -87,6 +89,7 @@
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
 }
 

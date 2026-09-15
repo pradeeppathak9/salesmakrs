@@ -1,0 +1,115 @@
+@import "./theme.css";
+
+.landing-page {
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-5) var(--gutter);
+}
+
+.landing-hero {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-section);
+}
+
+.landing-display {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-display);
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 18ch;
+  margin: var(--space-4) 0 var(--space-5) -0.05em;
+}
+
+.landing-lede {
+  font-size: var(--font-size-md);
+  line-height: 26px;
+  color: var(--text-secondary);
+  max-width: 62ch;
+  margin-bottom: var(--space-6);
+}
+
+.landing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.landing-section {
+  border-top: 2px solid var(--border-strong);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-section) var(--gutter);
+}
+
+.landing-section h2 {
+  font-size: var(--font-size-xl);
+}
+
+.landing-portals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+.landing-portal-icon {
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.landing-portal h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.landing-portal p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.landing-portal-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.landing-statement {
+  background: var(--accent);
+}
+
+.landing-statement h2 {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-section) var(--gutter);
+  color: var(--accent-text);
+  font-size: clamp(22px, 3vw, 38px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
+}
+
+.landing-footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-6) var(--gutter);
+}
+
+@media (max-width: 860px) {
+  .landing-portals {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
