@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Button from "../components/ui/Button";
+import ThemeToggle from "../components/ThemeToggle";
 import { HOME_PATH } from "../constants/roles";
 
 export default function Signup() {
@@ -30,10 +31,13 @@ export default function Signup() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <span className="brand">
-          <span className="brand-mark">SM</span>
-          SalesMakrs
-        </span>
+        <div className="auth-top">
+          <span className="brand">
+            <span className="brand-mark">SM</span>
+            SalesMakrs
+          </span>
+          <ThemeToggle />
+        </div>
         <h1>Create your distributor account</h1>
         <form onSubmit={handleSubmit}>
           <div className="field">

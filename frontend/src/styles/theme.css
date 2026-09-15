@@ -93,3 +93,34 @@
 
   color-scheme: dark;
 }
+
+/*
+  Light mode. Only the base tokens are redefined here — aliases like
+  --danger, --success, --accent-text resolve through var() at the point
+  of use, so they follow automatically. Applied via [data-theme="light"]
+  on <html>; see ThemeContext.
+*/
+[data-theme="light"] {
+  --bg: #f1f0ee;
+  --surface: #e7e5e2;
+  --surface-2: #dbd8d4;
+  --surface-3: #e7e5e2;
+  --border: rgba(28, 27, 25, 0.16);
+  --border-strong: rgba(28, 27, 25, 0.28);
+
+  --text-primary: #1c1b19;
+  --text-secondary: rgba(28, 27, 25, 0.76);
+  --text-muted: rgba(28, 27, 25, 0.62);
+
+  --accent: #0d6e6b;
+  --accent-hover: #0a4f4d;
+  --accent-soft: rgba(13, 110, 107, 0.16);
+
+  --up: #12793c;
+  --up-soft: rgba(18, 121, 60, 0.16);
+  --down: #96500c;
+  --down-soft: rgba(150, 80, 12, 0.16);
+  --danger-hover: #7a430a;
+
+  color-scheme: light;
+}

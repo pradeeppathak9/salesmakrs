@@ -18,6 +18,13 @@
   padding: var(--space-6) 0 0;
 }
 
+.auth-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
 .auth-card h1 {
   font-size: var(--font-size-lg);
   margin: var(--space-2) 0 var(--space-6);
@@ -84,7 +91,11 @@
   padding: var(--space-5) var(--space-4);
 }
 
-.sidebar .brand {
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
   padding: 0 var(--space-2);
   margin-bottom: var(--space-6);
 }
@@ -223,8 +234,9 @@
     border-bottom: 2px solid var(--border-strong);
   }
 
-  .sidebar .brand {
+  .sidebar-top {
     margin-bottom: 0;
+    padding: 0;
   }
 
   .sidebar-nav {

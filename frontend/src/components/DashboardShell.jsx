@@ -2,6 +2,7 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { IconLogOut } from "./icons";
 import { LOGIN_PATH } from "../constants/roles";
+import ThemeToggle from "./ThemeToggle";
 
 function initials(name = "") {
   return name
@@ -27,9 +28,12 @@ export default function DashboardShell({ navItems, primaryField, secondaryField 
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <div className="brand">
-          <span className="brand-mark">SM</span>
-          SalesMakrs
+        <div className="sidebar-top">
+          <div className="brand">
+            <span className="brand-mark">SM</span>
+            SalesMakrs
+          </div>
+          <ThemeToggle />
         </div>
 
         <nav className="sidebar-nav">

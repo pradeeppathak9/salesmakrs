@@ -15,7 +15,9 @@ Everything below is built, working, and was verified end-to-end (curl for the AP
 - Distributor signup/login, CRUD for Products/Retailers/Salespersons
 - Order placement + the full approval lifecycle (`pending → approved/rejected → fulfilled`, or `cancelled`) — see PLAN.md's state diagram
 - Salesperson App and Retailer Portal, both logging into the same app via role-scoped JWTs
-- Dark-mode dashboard UI on a token-based design system (`frontend/src/styles/theme.css`) — re-theme by editing that file only. Current theme: warm-neutral ground, teal-only accent, radius 0, rule-drawn structure (no card fills/shadows), Archivo + IBM Plex Mono (every figure goes through the `.num` utility for tabular alignment). See README's "Design system" section.
+- Dashboard UI on a token-based design system (`frontend/src/styles/theme.css`) — re-theme by editing that file only. Current theme: warm-neutral ground, teal-only accent, radius 0, rule-drawn structure (no card fills/shadows), Archivo + IBM Plex Mono (every figure goes through the `.num` utility for tabular alignment). See README's "Design system" section.
+- Dark (default) and light mode, toggled via the sun/moon button (sidebar, auth pages, landing header) — `context/ThemeContext.jsx` + `components/ThemeToggle.jsx`, persisted to `localStorage`, applied as `data-theme` on `<html>`
+- A public landing page at `/` linking to all three portal logins (`pages/Landing.jsx`); an authenticated visitor hitting `/` is redirected straight to their dashboard instead
 - Frontend and backend both dockerized (`docker-compose.yml`: `db`, `backend`, `frontend` services)
 
 **Not built**: Phase 5 (invoicing, payments, reporting/dashboards) — see PLAN.md's "Phase 5" section, which is intentionally left directional rather than detailed. If asked to build it, do a short planning pass first (the same way phases 2–4 got one) rather than assuming the shape.
@@ -68,13 +70,17 @@ backend/app/
 
 frontend/src/
   context/AuthContext.jsx        role-aware session state + login/signup functions
+  context/ThemeContext.jsx       dark/light state, persisted + applied as data-theme on <html>
+  components/ThemeToggle.jsx     sun/moon button, drops into any header/sidebar
   components/ProtectedRoute.jsx  role-gated route wrapper
   components/DashboardShell.jsx  shared sidebar shell; Layout/SalespersonLayout/RetailerLayout wrap it
   components/OrderForm.jsx       shared order cart-builder
   components/OrderDetail.jsx     shared order detail view
   components/ui/                 Button, Modal, EmptyState, Badge — generic primitives
   components/icons.jsx           inline SVG icons, no icon library
-  styles/theme.css                design tokens — edit this file to re-theme
+  styles/theme.css                design tokens (dark + light) — edit this file to re-theme
+  styles/landing.css              landing-page-specific layout
+  pages/Landing.jsx               public "/" page linking to all three portal logins
   pages/                          distributor pages (flat) + pages/salesperson/, pages/retailer/
 ```
 

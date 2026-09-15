@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { IconClipboard, IconStore, IconUsers } from "../components/icons";
+import ThemeToggle from "../components/ThemeToggle";
 
 const portals = [
   {
@@ -34,9 +35,12 @@ export default function Landing() {
           <span className="brand-mark">SM</span>
           SalesMakrs
         </span>
-        <Link to="/login" className="btn btn-secondary btn-sm">
-          Distributor log in
-        </Link>
+        <div className="landing-header-actions">
+          <ThemeToggle />
+          <Link to="/login" className="btn btn-secondary btn-sm">
+            Distributor log in
+          </Link>
+        </div>
       </header>
 
       <section className="landing-hero">

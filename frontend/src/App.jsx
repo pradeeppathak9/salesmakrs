@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { HOME_PATH } from "./constants/roles";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
@@ -32,50 +33,52 @@ function Fallback() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          element={
-            <ProtectedRoute role="distributor">
-              <Layout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/retailers" element={<Retailers />} />
-          <Route path="/salespersons" element={<Salespersons />} />
-        </Route>
+    <ThemeProvider>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            element={
+              <ProtectedRoute role="distributor">
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/retailers" element={<Retailers />} />
+            <Route path="/salespersons" element={<Salespersons />} />
+          </Route>
 
-        <Route path="/sales/login" element={<SalespersonLogin />} />
-        <Route
-          element={
-            <ProtectedRoute role="salesperson">
-              <SalespersonLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="/sales/place-order" element={<SalespersonPlaceOrder />} />
-          <Route path="/sales/orders" element={<SalespersonMyOrders />} />
-        </Route>
+          <Route path="/sales/login" element={<SalespersonLogin />} />
+          <Route
+            element={
+              <ProtectedRoute role="salesperson">
+                <SalespersonLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/sales/place-order" element={<SalespersonPlaceOrder />} />
+            <Route path="/sales/orders" element={<SalespersonMyOrders />} />
+          </Route>
 
-        <Route path="/retailer/login" element={<RetailerLogin />} />
-        <Route
-          element={
-            <ProtectedRoute role="retailer">
-              <RetailerLayout />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="/retailer/place-order" element={<RetailerPlaceOrder />} />
-          <Route path="/retailer/orders" element={<RetailerMyOrders />} />
-        </Route>
+          <Route path="/retailer/login" element={<RetailerLogin />} />
+          <Route
+            element={
+              <ProtectedRoute role="retailer">
+                <RetailerLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/retailer/place-order" element={<RetailerPlaceOrder />} />
+            <Route path="/retailer/orders" element={<RetailerMyOrders />} />
+          </Route>
 
-        <Route path="*" element={<Fallback />} />
-      </Routes>
-    </AuthProvider>
+          <Route path="*" element={<Fallback />} />
+        </Routes>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

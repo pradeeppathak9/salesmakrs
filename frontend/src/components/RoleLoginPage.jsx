@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./ui/Button";
+import ThemeToggle from "./ThemeToggle";
 
 export default function RoleLoginPage({ title, onLogin, homePath, footer }) {
   const navigate = useNavigate();
@@ -26,10 +27,13 @@ export default function RoleLoginPage({ title, onLogin, homePath, footer }) {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <span className="brand">
-          <span className="brand-mark">SM</span>
-          SalesMakrs
-        </span>
+        <div className="auth-top">
+          <span className="brand">
+            <span className="brand-mark">SM</span>
+            SalesMakrs
+          </span>
+          <ThemeToggle />
+        </div>
         <h1>{title}</h1>
         <form onSubmit={handleSubmit}>
           <div className="field">
