@@ -31,7 +31,7 @@ export default function Signup() {
     <div className="auth-page">
       <div className="auth-card">
         <span className="brand">
-          <span className="brand-mark">S</span>
+          <span className="brand-mark">SM</span>
           SalesMakrs
         </span>
         <h1>Create your distributor account</h1>

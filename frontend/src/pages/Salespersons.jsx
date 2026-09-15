@@ -11,9 +11,9 @@ const columns = [
     label: "App access",
     render: (item) =>
       item.has_login ? (
-        <Badge tone="success">Enabled</Badge>
+        <Badge tone="up">Enabled</Badge>
       ) : (
-        <Badge tone="neutral">Not set</Badge>
+        <Badge tone="neutral-muted">Not set</Badge>
       ),
   },
 ];

@@ -28,7 +28,7 @@ export default function DashboardShell({ navItems, primaryField, secondaryField 
     <div className="app-shell">
       <aside className="sidebar">
         <div className="brand">
-          <span className="brand-mark">S</span>
+          <span className="brand-mark">SM</span>
           SalesMakrs
         </div>
 

@@ -23,8 +23,10 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-display);
+  letter-spacing: -0.015em;
+  margin-left: -0.03em;
   color: var(--text-primary);
 }
 
@@ -37,7 +39,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
@@ -47,8 +51,41 @@ input {
   background: var(--accent-soft);
 }
 
-/* Scrollbars — subtle, dark-mode friendly */
+/* Scrollbars — subtle, warm-neutral friendly */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
+}
+
+/* Every figure — price, quantity, count, date — goes through this so
+   columns of numbers align. Apply to any cell/value that is a number. */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Uppercase mono caption — section labels, table headers, kickers */
+.caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }

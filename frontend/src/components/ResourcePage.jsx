@@ -166,7 +166,9 @@ export default function ResourcePage({
             <thead>
               <tr>
                 {columns.map((c) => (
-                  <th key={c.key}>{c.label}</th>
+                  <th key={c.key} className={c.numeric ? "num" : undefined}>
+                    {c.label}
+                  </th>
                 ))}
                 <th></th>
               </tr>
@@ -175,7 +177,9 @@ export default function ResourcePage({
               {items.map((item) => (
                 <tr key={item.id}>
                   {columns.map((c) => (
-                    <td key={c.key}>{c.render ? c.render(item) : item[c.key] || "—"}</td>
+                    <td key={c.key} className={c.numeric ? "num" : undefined}>
+                      {c.render ? c.render(item) : item[c.key] || "—"}
+                    </td>
                   ))}
                   <td className="row-actions">
                     <button className="link-btn" onClick={() => openEditForm(item)}>

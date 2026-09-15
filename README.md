@@ -53,6 +53,8 @@ Set `SECRET_KEY` and `CORS_ORIGINS` via a `.env` file at the repo root before de
 
 All colors, spacing, radii, and typography are defined once as CSS custom properties in [frontend/src/styles/theme.css](frontend/src/styles/theme.css). Components never hardcode a color — they use the classes in [components.css](frontend/src/styles/components.css) and [layout.css](frontend/src/styles/layout.css), which consume those tokens. To re-theme the app, edit `theme.css` only.
 
+The current theme: a warm-neutral dark ground (never pure black), teal as the only interface hue (primary actions, active nav, focus rings — never on data), radius 0 everywhere, and structure drawn with rules (2px for section/table-header seams, 1px hairlines between table rows) instead of card fills, borders, or shadows. Two type faces: **Archivo** (weight 800 for headings, 400 for body) for language, **IBM Plex Mono** for every figure — prices, quantities, dates, counts — always via the `.num` utility class (`font-variant-numeric: tabular-nums`) so columns of numbers align. Order status colors: `accent` (teal, approved), `up` (green, fulfilled), `down` (amber, rejected — no red anywhere in the app), `neutral`/`neutral-muted` (pending/cancelled).
+
 Reusable UI building blocks live in `frontend/src/components/ui/` (`Button`, `Modal`, `EmptyState`, `Badge`) and `frontend/src/components/icons.jsx` (inline SVG icons, no icon-library dependency).
 
 ## Portals

@@ -8,45 +8,57 @@
   in the codebase should hardcode a color, radius, or spacing
   value; components consume these variables via the classes
   defined in base.css.
+
+  This palette follows the MarktMakrs visual system: a warm
+  neutral ground (never pure black), teal as the only interface
+  hue, radius 0 everywhere, structure drawn with rules instead
+  of card fills/borders/shadows, and a two-face type system
+  (Archivo for language, IBM Plex Mono for every figure).
   ============================================================
 */
 
 :root {
-  /* Surfaces (dark mode) */
-  --bg: #0a0a0e;
-  --surface: #131319;
-  --surface-2: #1a1b22;
-  --surface-3: #22232c;
-  --border: #262733;
-  --border-strong: #34353f;
+  /* Surfaces (dark mode) — warm neutrals, never pure black */
+  --bg: #141312;
+  --surface: #1e1c1b;
+  --surface-2: #2d2b2b;
+  --surface-3: #1e1c1b;
+  --border: rgba(243, 242, 242, 0.16);
+  --border-strong: rgba(243, 242, 242, 0.28);
 
   /* Text */
-  --text-primary: #f2f2f6;
-  --text-secondary: #a4a5b3;
-  --text-muted: #6c6d7a;
+  --text-primary: #f3f2f2;
+  --text-secondary: rgba(243, 242, 242, 0.76);
+  --text-muted: rgba(243, 242, 242, 0.62);
 
-  /* Brand / accent */
-  --accent: #7c6cf6;
-  --accent-hover: #6a5af0;
-  --accent-soft: rgba(124, 108, 246, 0.16);
-  --accent-text: #ffffff;
+  /* Brand / accent — teal is the only interface hue: primary action,
+     active state, focus ring, links, monogram. Never on a number. */
+  --accent: #2fa8a3;
+  --accent-hover: #6fd0cb;
+  --accent-soft: rgba(47, 168, 163, 0.16);
+  --accent-text: var(--bg);
 
-  /* Semantic */
-  --danger: #f26d6d;
-  --danger-hover: #ef5757;
-  --danger-soft: rgba(242, 109, 109, 0.14);
-  --success: #4ade80;
-  --success-soft: rgba(74, 222, 128, 0.14);
-  --warning: #f5b04d;
-  --warning-soft: rgba(245, 176, 77, 0.16);
+  /* Semantic — "up"/"down" carry outcome (fulfilled/rejected), not price.
+     No red anywhere; the negative signal is amber, not red. */
+  --up: #2fbf6e;
+  --up-soft: rgba(47, 191, 110, 0.16);
+  --down: #e5a23c;
+  --down-soft: rgba(229, 162, 60, 0.16);
+
+  /* Aliases so existing component classes (alert/badge tones) keep working */
+  --danger: var(--down);
+  --danger-hover: #d99433;
+  --danger-soft: var(--down-soft);
+  --success: var(--up);
+  --success-soft: var(--up-soft);
   --info: var(--accent);
   --info-soft: var(--accent-soft);
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 999px;
+  /* Radius — 0 on every element: cards, chips, inputs, buttons, monogram */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-full: 0;
 
   /* Spacing scale */
   --space-1: 4px;
@@ -57,22 +69,27 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-section: 48px;
 
-  /* Typography */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Typography — Archivo carries language, IBM Plex Mono carries every figure */
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --weight-display: 800;
   --font-size-sm: 13px;
   --font-size-base: 14px;
   --font-size-md: 15px;
   --font-size-lg: 20px;
-  --font-size-xl: 24px;
+  --font-size-xl: 26px;
 
-  /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  /* Elevation — none. Depth comes from the raised ground step only. */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
 
   /* Layout */
   --sidebar-width: 240px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --measure: 1180px;
 
   color-scheme: dark;
 }

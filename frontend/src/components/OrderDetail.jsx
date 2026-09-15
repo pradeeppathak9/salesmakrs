@@ -5,17 +5,17 @@ export default function OrderDetail({ order }) {
     <div className="order-detail">
       <div className="order-detail-meta">
         <div>
-          <span className="muted-inline">Retailer</span>
+          <span className="caption">Retailer</span>
           <br />
           {order.retailer_name}
         </div>
         <div>
-          <span className="muted-inline">Placed by</span>
+          <span className="caption">Placed by</span>
           <br />
           {order.placed_by_name} ({order.placed_by_role})
         </div>
         <div>
-          <span className="muted-inline">Status</span>
+          <span className="caption">Status</span>
           <br />
           <OrderStatusBadge status={order.status} />
         </div>
@@ -32,18 +32,18 @@ export default function OrderDetail({ order }) {
           <thead>
             <tr>
               <th>Product</th>
-              <th>Qty</th>
-              <th>Unit price</th>
-              <th>Subtotal</th>
+              <th className="num">Qty</th>
+              <th className="num">Unit price</th>
+              <th className="num">Subtotal</th>
             </tr>
           </thead>
           <tbody>
             {order.items.map((item) => (
               <tr key={item.id}>
                 <td>{item.product_name}</td>
-                <td>{item.quantity}</td>
-                <td>${item.unit_price.toFixed(2)}</td>
-                <td>${(item.quantity * item.unit_price).toFixed(2)}</td>
+                <td className="num">{item.quantity}</td>
+                <td className="num">${item.unit_price.toFixed(2)}</td>
+                <td className="num">${(item.quantity * item.unit_price).toFixed(2)}</td>
               </tr>
             ))}
           </tbody>

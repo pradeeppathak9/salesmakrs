@@ -5,7 +5,12 @@ const columns = [
   { key: "name", label: "Name" },
   { key: "sku", label: "SKU" },
   { key: "category", label: "Category" },
-  { key: "price", label: "Price", render: (item) => `$${Number(item.price).toFixed(2)}` },
+  {
+    key: "price",
+    label: "Price",
+    numeric: true,
+    render: (item) => `$${Number(item.price).toFixed(2)}`,
+  },
   { key: "unit", label: "Unit" },
 ];
 

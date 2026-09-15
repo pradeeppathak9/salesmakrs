@@ -7,9 +7,9 @@ export const STATUS_LABEL = {
 };
 
 export const STATUS_TONE = {
-  pending: "warning",
-  approved: "info",
-  fulfilled: "success",
-  rejected: "danger",
-  cancelled: "neutral",
+  pending: "neutral",
+  approved: "accent",
+  fulfilled: "up",
+  rejected: "down",
+  cancelled: "neutral-muted",
 };

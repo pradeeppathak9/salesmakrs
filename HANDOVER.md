@@ -15,7 +15,7 @@ Everything below is built, working, and was verified end-to-end (curl for the AP
 - Distributor signup/login, CRUD for Products/Retailers/Salespersons
 - Order placement + the full approval lifecycle (`pending → approved/rejected → fulfilled`, or `cancelled`) — see PLAN.md's state diagram
 - Salesperson App and Retailer Portal, both logging into the same app via role-scoped JWTs
-- Dark-mode dashboard UI on a token-based design system (`frontend/src/styles/theme.css`) — re-theme by editing that file only
+- Dark-mode dashboard UI on a token-based design system (`frontend/src/styles/theme.css`) — re-theme by editing that file only. Current theme: warm-neutral ground, teal-only accent, radius 0, rule-drawn structure (no card fills/shadows), Archivo + IBM Plex Mono (every figure goes through the `.num` utility for tabular alignment). See README's "Design system" section.
 - Frontend and backend both dockerized (`docker-compose.yml`: `db`, `backend`, `frontend` services)
 
 **Not built**: Phase 5 (invoicing, payments, reporting/dashboards) — see PLAN.md's "Phase 5" section, which is intentionally left directional rather than detailed. If asked to build it, do a short planning pass first (the same way phases 2–4 got one) rather than assuming the shape.

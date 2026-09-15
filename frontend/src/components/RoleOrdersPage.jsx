@@ -83,8 +83,8 @@ export default function RoleOrdersPage({ title, subtitle, canCancel }) {
                 <th>Retailer</th>
                 <th>Placed by</th>
                 <th>Status</th>
-                <th>Total</th>
-                <th>Created</th>
+                <th className="num">Total</th>
+                <th className="num">Created</th>
                 <th></th>
               </tr>
             </thead>
@@ -99,8 +99,8 @@ export default function RoleOrdersPage({ title, subtitle, canCancel }) {
                   <td>
                     <OrderStatusBadge status={order.status} />
                   </td>
-                  <td>${order.total.toFixed(2)}</td>
-                  <td>{new Date(order.created_at).toLocaleDateString()}</td>
+                  <td className="num">${order.total.toFixed(2)}</td>
+                  <td className="num">{new Date(order.created_at).toLocaleDateString()}</td>
                   <td className="row-actions">
                     <button className="link-btn" onClick={() => setDetailOrder(order)}>
                       View
