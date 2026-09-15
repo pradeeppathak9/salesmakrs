@@ -32,6 +32,17 @@ services:
     command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     restart: unless-stopped
 
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
 volumes:
   db_data:
 
@@ -39,3 +50,9 @@ volumes:
 # docker compose logs -f backend
 # docker compose down          (keeps db_data volume)
 # docker compose down -v       (also wipes the database)
+#
+# The frontend is a production build (Vite -> static files served by nginx),
+# not a dev server — it needs a rebuild to pick up code changes:
+#   docker compose build frontend && docker compose up -d frontend
+# VITE_API_BASE_URL is baked in at build time; set it in .env if the backend
+# won't be reachable at http://localhost:8000 from wherever the browser runs.
