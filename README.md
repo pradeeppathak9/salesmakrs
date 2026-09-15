@@ -2,7 +2,7 @@
 
 Distribution-management app — React + Vite frontend, FastAPI backend, Postgres database. Three portals share one backend: **Distributor**, **Salesperson**, and **Retailer**.
 
-Picking this project up fresh (including as an AI agent)? Read [HANDOVER.md](HANDOVER.md) first — it covers current status, architecture, and gotchas. [PLAN.md](PLAN.md) has the fuller roadmap and reasoning behind the design decisions.
+Picking this project up fresh (including as an AI agent)? Read [HANDOVER.md](HANDOVER.md) first — it covers current status, architecture, and gotchas. [PLAN.md](PLAN.md) has the fuller roadmap and reasoning behind the design decisions. [DESIGN.md](DESIGN.md) is the visual design system on its own — portable to other projects that want the same look.
 
 ## Quickstart (dev)
 
@@ -50,6 +50,8 @@ docker compose up -d frontend
 Set `SECRET_KEY` and `CORS_ORIGINS` via a `.env` file at the repo root before deploying for real; the defaults in `docker-compose.yml` are dev-only.
 
 ## Design system
+
+See [DESIGN.md](DESIGN.md) for the full, portable design system (colors, type, component patterns, layout rules) — it's written generically so it can be reused for other projects, not just this one.
 
 All colors, spacing, radii, and typography are defined once as CSS custom properties in [frontend/src/styles/theme.css](frontend/src/styles/theme.css). Components never hardcode a color — they use the classes in [components.css](frontend/src/styles/components.css) and [layout.css](frontend/src/styles/layout.css), which consume those tokens. To re-theme the app, edit `theme.css` only.
 
